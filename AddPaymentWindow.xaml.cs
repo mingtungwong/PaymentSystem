@@ -49,7 +49,7 @@ namespace PaymentSystem
         private void PaymentOptionTypes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selection = PaymentOptionTypes.SelectedItem.ToString();
-            switch(selection)
+            switch (selection)
             {
                 case "Cash": InitView(); break;
                 case "Credit": CreditOrCheckView(true); break;
@@ -72,21 +72,40 @@ namespace PaymentSystem
 
         }
 
-        private void FetchAndCreateCashPayment()
+        private Payment FetchAndCreateCashPayment(string name, double balance)
         {
-            string name = PaymentNameInput.Text;
-            double balance = double.Parse(StartingBalanceBox.Text);
-            Payment p = new Cash(name, balance);
-            theWallet.AddPaymentMethod(p);
+            return new Cash(name, balance);
+        }
 
+        private Payment FetchAndCreateCreditPayment(string name, double balance)
+        {
+            string ccNumber = MainInfo.Text;
+            string exp = SecondaryInfo.Text;
+            string ccName = CCNAmeInput.Text;
+            double ccLimit = double.Parse(LimitInput.Text);
+            return new CreditCard(name, balance, ccName, ccNumber, exp, ccLimit);
+        }
+
+        private Payment FetchAndCreateCheckPayment(string name, double balance)
+        {
+            string accountNumber = MainInfo.Text;
+            string routingNumber = SecondaryInfo.Text;
+            return new Check(name, balance, accountNumber, routingNumber);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            switch(selection)
+            string name = PaymentNameInput.Text;
+            double balance = double.Parse(StartingBalanceBox.Text);
+            Payment p = null;
+
+            switch (selection)
             {
-                case "Cash": FetchAndCreateCashPayment(); break;
+                case "Cash": p = FetchAndCreateCashPayment(name, balance); break;
+                case "Credit": p = FetchAndCreateCreditPayment(name, balance); break;
+                case "Check": p = FetchAndCreateCheckPayment(name, balance); break;
             }
+            theWallet.AddPaymentMethod(p);
             Cleanup();
             this.Visibility = Visibility.Hidden;
         }

@@ -11,19 +11,19 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ComboBox x:Name="PaymentOptionTypes" HorizontalAlignment="Left" Margin="300,30,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="PaymentOptionTypes_SelectionChanged" Grid.ColumnSpan="2" Height="22"/>
-        <Button x:Name="SubmitButton" Content="Submit" HorizontalAlignment="Left" Margin="336,277,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Grid.ColumnSpan="2" Height="20"/>
-        <TextBox x:Name="MainInfo" HorizontalAlignment="Left" Height="23" Margin="188,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="SecondaryInfo" HorizontalAlignment="Left" Height="23" Margin="435,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="PaymentOptionTypes" HorizontalAlignment="Left" Margin="300,30,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="PaymentOptionTypes_SelectionChanged" Grid.ColumnSpan="2" Height="22" TabIndex="0"/>
+        <Button x:Name="SubmitButton" Content="Submit" HorizontalAlignment="Left" Margin="336,277,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Grid.ColumnSpan="2" Height="20" TabIndex="7"/>
+        <TextBox x:Name="MainInfo" HorizontalAlignment="Left" Height="23" Margin="188,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127" Grid.ColumnSpan="2" TabIndex="2"/>
+        <TextBox x:Name="SecondaryInfo" HorizontalAlignment="Left" Height="23" Margin="435,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" TabIndex="3"/>
         <Label x:Name="MainLabel" Content="Account Number" HorizontalAlignment="Left" Margin="102,118,0,0" VerticalAlignment="Top" Width="86" FontSize="10" Grid.ColumnSpan="2" Height="23"/>
         <Label x:Name="SecondaryLabel" Content="Routing Number" HorizontalAlignment="Left" Margin="342,118,0,0" VerticalAlignment="Top" Width="93" FontSize="10" RenderTransformOrigin="0.484,1.689" Grid.ColumnSpan="2" Height="23"/>
-        <TextBox x:Name="StartingBalanceBox" HorizontalAlignment="Left" Height="23" Margin="315,202,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="StartingBalanceBox" HorizontalAlignment="Left" Height="23" Margin="315,202,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" TabIndex="6"/>
         <Label x:Name="StartingBalanceLabel" Content="Starting Balance" HorizontalAlignment="Left" Margin="203,202,0,0" VerticalAlignment="Top" Width="91" FontSize="10" Grid.ColumnSpan="2" Height="23"/>
-        <TextBox x:Name="PaymentNameInput" HorizontalAlignment="Left" Height="23" Margin="300,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="PaymentNameInput" HorizontalAlignment="Left" Height="23" Margin="300,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" TabIndex="1"/>
         <Label x:Name="PaymentNameLabel" Content="Payment Name" HorizontalAlignment="Left" Margin="203,64,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="26" Width="91"/>
         <Label x:Name="CCNameLabel" Grid.ColumnSpan="2" Content="Card Holder's Name" HorizontalAlignment="Left" Margin="75,160,0,0" VerticalAlignment="Top" Width="108" FontSize="10" Height="23"/>
-        <TextBox x:Name="CCNAmeInput" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="188,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127"/>
-        <TextBox x:Name="LimitInput" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="435,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="CCNAmeInput" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="188,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127" TabIndex="4"/>
+        <TextBox x:Name="LimitInput" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="435,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="5"/>
         <Label x:Name="LimitLabel" Grid.ColumnSpan="2" Content="Limit" HorizontalAlignment="Left" Margin="374,156,0,0" VerticalAlignment="Top" Width="46" Height="26"/>
 
     </Grid>
