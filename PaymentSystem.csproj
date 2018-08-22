@@ -62,6 +62,9 @@
       <DependentUpon>AddPaymentWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Cash.cs" />
+    <Compile Include="PaymentLine.cs" />
+    <Compile Include="Transaction.cs" />
+    <Compile Include="TransactionLine.cs" />
     <Compile Include="Wallet.cs" />
     <Page Include="AddFundsWindow.xaml">
       <SubType>Designer</SubType>
