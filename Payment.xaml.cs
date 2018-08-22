@@ -50,5 +50,15 @@ namespace PaymentSystem
             string text = SavedPaymentsDropdown.Text;
             MyWallet.Remove(text);
         }
+
+        private void AddFundsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Payment p = MyWallet.Get(SavedPaymentsDropdown.SelectedIndex);
+            if(p != null)
+            {
+                AddFundsWindow win = new AddFundsWindow(p);
+                win.Visibility = Visibility.Visible;
+            }
+        }
     }
 }

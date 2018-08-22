@@ -10,7 +10,7 @@
         <Button x:Name="AddPaymentButton" Content="Add Payment Option" HorizontalAlignment="Left" Margin="57,62,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click" FontSize="8"/>
         <ComboBox x:Name="SavedPaymentsDropdown" SelectionChanged="ComboBox_SelectionChanged" Margin="57,97,635,300" SelectedIndex="0" VerticalAlignment="Center"/>
         <Button x:Name="DeletePaymentOption" Content="Delete" HorizontalAlignment="Left" Margin="269,99,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
-        <Button x:Name="EditPaymentOption" Content="Edit" HorizontalAlignment="Left" Margin="178,99,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="AddFundsButton" Content="Add Funds" HorizontalAlignment="Left" Margin="178,99,0,0" VerticalAlignment="Top" Width="75" Click="AddFundsButton_Click"/>
         <TextBlock x:Name="PaymentInfo" HorizontalAlignment="Left" Margin="57,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="188" Width="287"/>
     </Grid>
 </Window>

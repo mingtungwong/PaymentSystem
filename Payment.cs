@@ -34,5 +34,10 @@ namespace PaymentSystem
         }
 
         public abstract override string ToString();
+
+        public virtual string GetBalanceInfo()
+        {
+            return $"Balance: ${Balance}";
+        }
     }
 }

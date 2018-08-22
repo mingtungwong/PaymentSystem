@@ -49,5 +49,10 @@ namespace PaymentSystem
             sb.Append($"Available Credit: ${Limit - Balance}\n");
             return sb.ToString();
         }
+
+        public override string GetBalanceInfo()
+        {
+            return $"Limit: ${Limit}\nBalance: ${Balance}\nAvailable Credit: ${Limit - Balance}";
+        }
     }
 }

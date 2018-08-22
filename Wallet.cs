@@ -34,7 +34,14 @@ namespace PaymentSystem
 
         public Payment Get(int index)
         {
-            return PaymentMethods[index];
+            try
+            {
+                return PaymentMethods[index];
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }
