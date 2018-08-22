@@ -32,5 +32,7 @@ namespace PaymentSystem
         {
             Balance += amount;
         }
+
+        public abstract override string ToString();
     }
 }

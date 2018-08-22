@@ -35,5 +35,19 @@ namespace PaymentSystem
                 Balance = newBalance;
             }
         }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append("Payment Type: Credit Card\n");
+            sb.Append($"Payment Name: {Name}\n");
+            sb.Append($"Name: {CardHolderName}\n");
+            sb.Append($"Number: XXXXX-XXXX-XXXX-{CardNumber.Substring(11)}\n");
+            sb.Append($"Expiration: {Expiration}\n");
+            sb.Append($"Limit: ${Limit}\n");
+            sb.Append($"Balance: ${Balance}\n");
+            sb.Append($"Available Credit: ${Limit - Balance}\n");
+            return sb.ToString();
+        }
     }
 }

@@ -31,5 +31,10 @@ namespace PaymentSystem
                 }
             }
         }
+
+        public Payment Get(int index)
+        {
+            return PaymentMethods[index];
+        }
     }
 }

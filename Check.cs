@@ -16,5 +16,10 @@ namespace PaymentSystem
             AccountNumber = accountNumber;
             RoutingNumber = routingNumber;
         }
+
+        public override string ToString()
+        {
+            return $"Payment Type: Check\nName: {Name}\nAccount Number: {AccountNumber}\nRouting Number: {RoutingNumber}\nBalance: ${Balance}";
+        }
     }
 }

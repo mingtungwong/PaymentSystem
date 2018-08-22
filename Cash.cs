@@ -12,5 +12,10 @@ namespace PaymentSystem
         {
 
         }
+
+        public override string ToString()
+        {
+            return $"Payment Type: Cash\nPayment Name: {Name}\nBalance: ${Balance}";
+        }
     }
 }

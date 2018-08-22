@@ -31,6 +31,7 @@ namespace PaymentSystem
             InitializeComponent();
             SavedPaymentsDropdown.ItemsSource = MyWallet.PaymentMethods;
             SavedPaymentsDropdown.DisplayMemberPath = "Name";
+            SavedPaymentsDropdown.SelectedIndex = 0;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -40,7 +41,8 @@ namespace PaymentSystem
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            Payment p = MyWallet.Get(SavedPaymentsDropdown.SelectedIndex);
+            PaymentInfo.Text = p != null ? p.ToString() : "";
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
