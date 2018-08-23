@@ -23,8 +23,8 @@ namespace PaymentSystem
             TransactionName = name;
             Items = new ObservableCollection<TransactionLine>();
             Payments = new ObservableCollection<PaymentLine>();
-            itemsBuilder.Append("\nItems\n");
-            paymentsBuilder.Append("\n\n\t\tPayments\n");
+            itemsBuilder.Append("\nItems\n\n");
+            paymentsBuilder.Append("\n\nPayments\n\n");
         }
 
         public void AddItem(TransactionLine item)
@@ -36,7 +36,7 @@ namespace PaymentSystem
         public void AddPayment(PaymentLine payment)
         {
             Payments.Add(payment);
-            paymentsBuilder.Append($"\t\t{payment.PaymentOption.Name}\t${payment.Amount}\n");
+            paymentsBuilder.Append($"{payment.PaymentOption.Name}\t\t\t${payment.Amount}\n");
         }
         
         public double GetTotalBalance()
@@ -84,7 +84,7 @@ namespace PaymentSystem
             sb.Append($"\t\tTotal:\t${balance}\n");
             sb.Append($"\t\tPaid:\t${funds}\n");
             sb.Append($"\t\tDue:\t${balance - funds}\n");
-            return $"{TransactionName}({TransactionIDNumber})\n\n{itemsBuilder.ToString()}{paymentsBuilder.ToString()}\n{sb.ToString()}";
+            return $"{TransactionName} (ID#{TransactionIDNumber})\n{itemsBuilder.ToString()}{paymentsBuilder.ToString()}\n{sb.ToString()}";
         }
     }
 }

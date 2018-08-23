@@ -32,7 +32,7 @@ namespace PaymentSystem
             MyWallet = new Wallet();
             addPayWin = new AddPaymentWindow(MyWallet);
             PastTransactions = new ObservableCollection<Transaction>();
-            InitializeComponent(); 
+            InitializeComponent();
             transactionUIElements = getTransactionUIElements();
             ToggleTransactionUIVisibility(false);
             SavedPaymentsDropdown.ItemsSource = MyWallet.PaymentMethods;
@@ -89,9 +89,9 @@ namespace PaymentSystem
         private void AddFundsButton_Click(object sender, RoutedEventArgs e)
         {
             Payment p = MyWallet.Get(SavedPaymentsDropdown.SelectedIndex);
-            if(p != null)
+            if (p != null)
             {
-                AddFundsWindow win = new AddFundsWindow(p);
+                AddFundsWindow win = new AddFundsWindow(p, PaymentInfo);
                 win.Visibility = Visibility.Visible;
             }
         }
@@ -99,7 +99,7 @@ namespace PaymentSystem
         private void ToggleTransactionUIVisibility(bool showUI)
         {
             Visibility vis = showUI ? Visibility.Visible : Visibility.Hidden;
-            foreach(var c in transactionUIElements)
+            foreach (var c in transactionUIElements)
             {
                 c.Visibility = vis;
             }
@@ -122,7 +122,7 @@ namespace PaymentSystem
             ItemNameInput.Text = "";
             TransactionItemPriceInput.Text = "";
             TotalBalanceAmountLabel.Content = $"${Current.GetTotalBalance()}";
-            if(TransactionGrid.ItemsSource == null)
+            if (TransactionGrid.ItemsSource == null)
             {
                 TransactionGrid.ItemsSource = Current.Items;
                 PaymentGrid.ItemsSource = Current.Payments;
@@ -145,7 +145,7 @@ namespace PaymentSystem
 
         private void PayButton_Click(object sender, RoutedEventArgs e)
         {
-            if(!Current.HaveEnoughFunds())
+            if (!Current.HaveEnoughFunds())
             {
                 ErrorLabel.Content = "Not enough funds.";
             } else
@@ -153,13 +153,14 @@ namespace PaymentSystem
                 double totalBalance = Current.GetTotalBalance();
                 double funds = Current.GetTotalFunds();
                 double difference = totalBalance - funds;
-                if(difference != 0)
+                if (difference != 0)
                 {
                     ErrorLabel.Content = difference > 0 ? "Your payment is insufficient." : "You are overpaying.";
                 }
                 else
                 {
                     Current.Charge();
+                    UpdateSelectedPaymentInfo();
                     PastTransactions.Add(Current);
                     Current = null;
                     TransactionNameInput.Text = "";
@@ -186,6 +187,19 @@ namespace PaymentSystem
             catch
             {
 
+            }
+        }
+
+        private void UpdateSelectedPaymentInfo()
+        {
+            ObservableCollection<PaymentLine> list = Current.Payments;
+            string val = SavedPaymentsDropdown.Text;
+            foreach(var pl in list)
+            {
+                if(pl.PaymentOption.Name == val)
+                {
+                    PaymentInfo.Text = pl.PaymentOption.ToString();
+                }
             }
         }
     }

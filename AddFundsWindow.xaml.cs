@@ -20,10 +20,12 @@ namespace PaymentSystem
     public partial class AddFundsWindow : Window
     {
         private Payment selectedPayment;
+        private TextBlock tbToUpdate;
 
-        public AddFundsWindow(Payment p)
+        public AddFundsWindow(Payment p, TextBlock pi)
         {
             selectedPayment = p;
+            tbToUpdate = pi;
             InitializeComponent();
             AddFundsAccountInfo.Text = p.GetBalanceInfo();
         }
@@ -37,6 +39,7 @@ namespace PaymentSystem
         {
             var amountToAdd = double.Parse(FundsAmountInput.Text);
             selectedPayment.AddBalance(amountToAdd);
+            tbToUpdate.Text = selectedPayment.ToString();
             this.Visibility = Visibility.Hidden;
         }
     }
