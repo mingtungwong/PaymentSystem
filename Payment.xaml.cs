@@ -65,6 +65,7 @@ namespace PaymentSystem
             list.Add(TotalFundsLabel);
             list.Add(TotalFundsAmountLabel);
             list.Add(PayButton);
+            list.Add(ErrorLabel);
             return list;
         }
 
@@ -146,7 +147,7 @@ namespace PaymentSystem
         {
             if(!Current.HaveEnoughFunds())
             {
-                ErrorLabel.Content = "Sorry, you do not have enough funds. Please adjust payment options";
+                ErrorLabel.Content = "Not enough funds.";
             } else
             {
                 double totalBalance = Current.GetTotalBalance();
@@ -162,6 +163,10 @@ namespace PaymentSystem
                     PastTransactions.Add(Current);
                     Current = null;
                     TransactionNameInput.Text = "";
+                    SetTransactionNameButton.Visibility = Visibility.Visible;
+                    ErrorLabel.Content = "";
+                    TotalBalanceAmountLabel.Content = "";
+                    TotalFundsAmountLabel.Content = "";
                     TransactionNameInput.IsEnabled = true;
                     TransactionGrid.ItemsSource = null;
                     PaymentGrid.ItemsSource = null;

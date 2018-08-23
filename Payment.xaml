@@ -50,6 +50,6 @@
                 <DataGridTextColumn Header="Amount" Binding="{Binding Amount}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Label x:Name="ErrorLabel" Content="" HorizontalAlignment="Left" Margin="617,513,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="ErrorLabel" Content="" HorizontalAlignment="Left" Margin="619,513,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
