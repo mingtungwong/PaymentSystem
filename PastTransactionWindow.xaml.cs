@@ -19,9 +19,15 @@ namespace PaymentSystem
     /// </summary>
     public partial class PastTransactionWindow : Window
     {
-        public PastTransactionWindow()
+        public PastTransactionWindow(Transaction t)
         {
             InitializeComponent();
+            TransactionInfo.Text = t.ToString();
+        }
+
+        private void ClosePastTransactionViewButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
         }
     }
 }

@@ -23,6 +23,7 @@ namespace PaymentSystem
     {
         public static Wallet MyWallet { get; set; }
         public Transaction Current { get; set; }
+        public ObservableCollection<Transaction> PastTransactions { get; set; }
         public AddPaymentWindow addPayWin;
         private List<Control> transactionUIElements;
 
@@ -30,6 +31,7 @@ namespace PaymentSystem
         {
             MyWallet = new Wallet();
             addPayWin = new AddPaymentWindow(MyWallet);
+            PastTransactions = new ObservableCollection<Transaction>();
             InitializeComponent(); 
             transactionUIElements = getTransactionUIElements();
             ToggleTransactionUIVisibility(false);
@@ -39,7 +41,8 @@ namespace PaymentSystem
             PaymentSourceDropdown.DisplayMemberPath = "Name";
             SavedPaymentsDropdown.SelectedIndex = 0;
             PaymentSourceDropdown.SelectedIndex = 0;
-
+            PastTransactionsDropdown.ItemsSource = PastTransactions;
+            PastTransactionsDropdown.DisplayMemberPath = "TransactionName";
         }
 
         private List<Control> getTransactionUIElements()
@@ -136,6 +139,48 @@ namespace PaymentSystem
             {
                 TransactionGrid.ItemsSource = Current.Items;
                 PaymentGrid.ItemsSource = Current.Payments;
+            }
+        }
+
+        private void PayButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(!Current.HaveEnoughFunds())
+            {
+                ErrorLabel.Content = "Sorry, you do not have enough funds. Please adjust payment options";
+            } else
+            {
+                double totalBalance = Current.GetTotalBalance();
+                double funds = Current.GetTotalFunds();
+                double difference = totalBalance - funds;
+                if(difference != 0)
+                {
+                    ErrorLabel.Content = difference > 0 ? "Your payment is insufficient." : "You are overpaying.";
+                }
+                else
+                {
+                    Current.Charge();
+                    PastTransactions.Add(Current);
+                    Current = null;
+                    TransactionNameInput.Text = "";
+                    TransactionNameInput.IsEnabled = true;
+                    TransactionGrid.ItemsSource = null;
+                    PaymentGrid.ItemsSource = null;
+                    ToggleTransactionUIVisibility(false);
+                }
+            }
+        }
+
+        private void ViewPastTransactionsButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Transaction t = PastTransactions[PastTransactionsDropdown.SelectedIndex];
+                PastTransactionWindow w = new PastTransactionWindow(t);
+                w.Visibility = Visibility.Visible;
+            }
+            catch
+            {
+
             }
         }
     }

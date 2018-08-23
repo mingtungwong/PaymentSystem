@@ -33,6 +33,11 @@ namespace PaymentSystem
             Balance += amount;
         }
 
+        public virtual bool TryToPay(double amount)
+        {
+            return Balance - amount >= 0;
+        }
+
         public abstract override string ToString();
 
         public virtual string GetBalanceInfo()

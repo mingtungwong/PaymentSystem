@@ -14,6 +14,8 @@ namespace PaymentSystem
         public ObservableCollection<PaymentLine> Payments { get; set; }
         public string TransactionName { get; set; }
         public int TransactionIDNumber { get; set; }
+        private readonly StringBuilder itemsBuilder = new StringBuilder();
+        private readonly StringBuilder paymentsBuilder = new StringBuilder();
 
         public Transaction(string name)
         {
@@ -21,16 +23,20 @@ namespace PaymentSystem
             TransactionName = name;
             Items = new ObservableCollection<TransactionLine>();
             Payments = new ObservableCollection<PaymentLine>();
+            itemsBuilder.Append("\nItems\n");
+            paymentsBuilder.Append("\n\n\t\tPayments\n");
         }
 
         public void AddItem(TransactionLine item)
         {
             Items.Add(item);
+            itemsBuilder.Append($"{item.ItemName}\t\t\t${item.ItemCost}\n");
         }
 
         public void AddPayment(PaymentLine payment)
         {
             Payments.Add(payment);
+            paymentsBuilder.Append($"\t\t{payment.PaymentOption.Name}\t${payment.Amount}\n");
         }
         
         public double GetTotalBalance()
@@ -51,6 +57,34 @@ namespace PaymentSystem
                 sum += payment.Amount;
             }
             return sum;
+        }
+
+        public bool HaveEnoughFunds()
+        {
+            foreach(var payment in Payments)
+            {
+                if (!payment.PaymentOption.TryToPay(payment.Amount)) return false;
+            }
+            return true;
+        }
+
+        public void Charge()
+        {
+            foreach(var payment in Payments)
+            {
+                payment.PaymentOption.Pay(payment.Amount);
+            }
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            double balance = GetTotalBalance();
+            double funds = GetTotalFunds();
+            sb.Append($"\t\tTotal:\t${balance}\n");
+            sb.Append($"\t\tPaid:\t${funds}\n");
+            sb.Append($"\t\tDue:\t${balance - funds}\n");
+            return $"{TransactionName}({TransactionIDNumber})\n\n{itemsBuilder.ToString()}{paymentsBuilder.ToString()}\n{sb.ToString()}";
         }
     }
 }

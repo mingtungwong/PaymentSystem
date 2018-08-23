@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="PastTransactionWindow" Height="450" Width="800">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Height="352" Margin="94,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="591"/>
+        <TextBox x:Name="TransactionInfo" HorizontalAlignment="Left" Height="352" Margin="94,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="591"/>
+        <Button x:Name="ClosePastTransactionViewButton" Content="Close" HorizontalAlignment="Left" Margin="364,389,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.36,-0.037" Click="ClosePastTransactionViewButton_Click"/>
 
     </Grid>
 </Window>

@@ -50,6 +50,11 @@ namespace PaymentSystem
             return sb.ToString();
         }
 
+        public override bool TryToPay(double amount)
+        {
+            return Balance + amount <= Limit;
+        }
+
         public override string GetBalanceInfo()
         {
             return $"Limit: ${Limit}\nBalance: ${Balance}\nAvailable Credit: ${Limit - Balance}";
