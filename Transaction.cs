@@ -33,5 +33,24 @@ namespace PaymentSystem
             Payments.Add(payment);
         }
         
+        public double GetTotalBalance()
+        {
+            double sum = 0;
+            foreach(var item in Items)
+            {
+                sum += item.ItemCost;
+            }
+            return sum;
+        }
+
+        public double GetTotalFunds()
+        {
+            double sum = 0;
+            foreach(var payment in Payments)
+            {
+                sum += payment.Amount;
+            }
+            return sum;
+        }
     }
 }

@@ -117,6 +117,7 @@ namespace PaymentSystem
             Current.AddItem(new TransactionLine(itemName, price));
             ItemNameInput.Text = "";
             TransactionItemPriceInput.Text = "";
+            TotalBalanceAmountLabel.Content = $"${Current.GetTotalBalance()}";
             if(TransactionGrid.ItemsSource == null)
             {
                 TransactionGrid.ItemsSource = Current.Items;
@@ -130,6 +131,7 @@ namespace PaymentSystem
             double amount = double.Parse(PaymentAmountInput.Text);
             Current.AddPayment(new PaymentLine(p, amount));
             PaymentAmountInput.Text = "";
+            TotalFundsAmountLabel.Content = $"${Current.GetTotalFunds()}";
             if (TransactionGrid.ItemsSource == null)
             {
                 TransactionGrid.ItemsSource = Current.Items;
