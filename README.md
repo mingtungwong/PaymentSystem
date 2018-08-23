@@ -8,3 +8,18 @@ After the transaction is complete, users can view their past transactions from t
 UI updates necessary. More error checking and input validation are also still required.
 
 A compiled/built version can be found in the [releases](https://github.com/mingtungwong/PaymentSystem/releases) section in this repository. 
+
+### This is the main UI view.
+![alt text](https://raw.githubusercontent.com/mingtungwong/PaymentSystem/master/images/MainUI.png "Main UI")
+
+### This is one of the views for adding a payment option to wallet. Credit Card more specifically.
+![alt text](https://raw.githubusercontent.com/mingtungwong/PaymentSystem/master/images/AddCredit.png "Adding Credit Card Payment")
+
+### You can view information regarding the payment option using the drop down menu.
+![alt text](https://raw.githubusercontent.com/mingtungwong/PaymentSystem/master/images/PaymentOptionInfoView.PNG "Payment Information")
+
+### Use this portion of the UI to create a transaction.
+![alt text](https://raw.githubusercontent.com/mingtungwong/PaymentSystem/master/images/TransactionView.PNG "Transaction View")
+
+### This is what one of the past transactions will look like.
+![alt text](https://raw.githubusercontent.com/mingtungwong/PaymentSystem/master/images/PastTransactionsReceipt.png "Receipt")
