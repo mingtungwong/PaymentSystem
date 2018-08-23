@@ -15,7 +15,7 @@
         <DataGrid x:Name="TransactionGrid" HorizontalAlignment="Left" Height="100" Margin="474,55,0,0" VerticalAlignment="Top" Width="262"/>
         <Label x:Name="TransactionNameLabel" Content="Name" HorizontalAlignment="Left" Margin="474,24,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TransactionNameInput" HorizontalAlignment="Left" Height="23" Margin="516,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="SetTransactionNameButton" Content="Set" HorizontalAlignment="Left" Margin="641,24,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
+        <Button x:Name="SetTransactionNameButton" Content="Set" HorizontalAlignment="Left" Margin="641,24,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="SetTransactionNameButton_Click"/>
         <Label x:Name="AddItemsLabel" Content="Add Items" HorizontalAlignment="Left" Margin="480,160,0,0" VerticalAlignment="Top" Width="68"/>
         <Label x:Name="ItemNameLabel" Content="Item Name" HorizontalAlignment="Left" Margin="479,186,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="ItemNameInput" HorizontalAlignment="Left" Height="23" Margin="548,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>

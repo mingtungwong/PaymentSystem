@@ -96,5 +96,14 @@ namespace PaymentSystem
                 c.Visibility = vis;
             }
         }
+
+        private void SetTransactionNameButton_Click(object sender, RoutedEventArgs e)
+        {
+            string transactionName = TransactionNameInput.Text;
+            TransactionNameInput.IsEnabled = false;
+            SetTransactionNameButton.Visibility = Visibility.Hidden;
+            ToggleTransactionUIVisibility(true);
+            Current = new Transaction(transactionName);
+        }
     }
 }
