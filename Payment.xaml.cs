@@ -34,8 +34,12 @@ namespace PaymentSystem
             transactionUIElements = getTransactionUIElements();
             ToggleTransactionUIVisibility(false);
             SavedPaymentsDropdown.ItemsSource = MyWallet.PaymentMethods;
+            PaymentSourceDropdown.ItemsSource = MyWallet.PaymentMethods;
             SavedPaymentsDropdown.DisplayMemberPath = "Name";
+            PaymentSourceDropdown.DisplayMemberPath = "Name";
             SavedPaymentsDropdown.SelectedIndex = 0;
+            PaymentSourceDropdown.SelectedIndex = 0;
+
         }
 
         private List<Control> getTransactionUIElements()
@@ -104,6 +108,33 @@ namespace PaymentSystem
             SetTransactionNameButton.Visibility = Visibility.Hidden;
             ToggleTransactionUIVisibility(true);
             Current = new Transaction(transactionName);
+        }
+
+        private void AddItemButton_Click(object sender, RoutedEventArgs e)
+        {
+            string itemName = ItemNameInput.Text;
+            double price = double.Parse(TransactionItemPriceInput.Text);
+            Current.AddItem(new TransactionLine(itemName, price));
+            ItemNameInput.Text = "";
+            TransactionItemPriceInput.Text = "";
+            if(TransactionGrid.ItemsSource == null)
+            {
+                TransactionGrid.ItemsSource = Current.Items;
+                PaymentGrid.ItemsSource = Current.Payments;
+            }
+        }
+
+        private void AddPaymentSourceButton_Click(object sender, RoutedEventArgs e)
+        {
+            Payment p = MyWallet.Get(PaymentSourceDropdown.SelectedIndex);
+            double amount = double.Parse(PaymentAmountInput.Text);
+            Current.AddPayment(new PaymentLine(p, amount));
+            PaymentAmountInput.Text = "";
+            if (TransactionGrid.ItemsSource == null)
+            {
+                TransactionGrid.ItemsSource = Current.Items;
+                PaymentGrid.ItemsSource = Current.Payments;
+            }
         }
     }
 }
