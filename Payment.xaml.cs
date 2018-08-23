@@ -22,13 +22,14 @@ namespace PaymentSystem
     public partial class MainWindow : Window
     {
         public static Wallet MyWallet { get; set; }
+        public Transaction Current { get; set; }
         public AddPaymentWindow addPayWin;
 
         public MainWindow()
         {
             MyWallet = new Wallet();
             addPayWin = new AddPaymentWindow(MyWallet);
-            InitializeComponent();
+            InitializeComponent(); 
             SavedPaymentsDropdown.ItemsSource = MyWallet.PaymentMethods;
             SavedPaymentsDropdown.DisplayMemberPath = "Name";
             SavedPaymentsDropdown.SelectedIndex = 0;
