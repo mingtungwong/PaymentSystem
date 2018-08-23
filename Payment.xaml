@@ -16,25 +16,25 @@
         <Label x:Name="TransactionNameLabel" Content="Name" HorizontalAlignment="Left" Margin="474,24,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TransactionNameInput" HorizontalAlignment="Left" Height="23" Margin="516,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="SetTransactionNameButton" Content="Set" HorizontalAlignment="Left" Margin="641,24,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
-        <Label Content="Add Items" HorizontalAlignment="Left" Margin="480,160,0,0" VerticalAlignment="Top" Width="68"/>
-        <Label Content="Item Name" HorizontalAlignment="Left" Margin="479,186,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="548,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Price" HorizontalAlignment="Left" Margin="507,212,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="548,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Add Item" HorizontalAlignment="Left" Margin="682,199,0,0" VerticalAlignment="Top" Width="75"/>
-        <Label Content="Add Payments" HorizontalAlignment="Left" Margin="462,243,0,0" VerticalAlignment="Top" Width="86"/>
-        <ComboBox HorizontalAlignment="Left" Margin="548,269,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="548,296,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Payment Source" HorizontalAlignment="Left" Margin="448,267,0,0" VerticalAlignment="Top"/>
-        <Label Content="Amount" HorizontalAlignment="Left" Margin="490,293,0,0" VerticalAlignment="Top"/>
-        <Button Content="Add Payment" HorizontalAlignment="Left" Margin="682,286,0,0" VerticalAlignment="Top" Width="75"/>
-        <Label Content="Total Balance:" HorizontalAlignment="Left" Margin="584,337,0,0" VerticalAlignment="Top" Width="84"/>
+        <Label x:Name="AddItemsLabel" Content="Add Items" HorizontalAlignment="Left" Margin="480,160,0,0" VerticalAlignment="Top" Width="68"/>
+        <Label x:Name="ItemNameLabel" Content="Item Name" HorizontalAlignment="Left" Margin="479,186,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="ItemNameInput" HorizontalAlignment="Left" Height="23" Margin="548,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="TransactionItemPriceLabel" Content="Price" HorizontalAlignment="Left" Margin="507,212,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TransactionItemPriceInput" HorizontalAlignment="Left" Height="23" Margin="548,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="AddItemButton" Content="Add Item" HorizontalAlignment="Left" Margin="682,199,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="AddPaymentsLabel" Content="Add Payments" HorizontalAlignment="Left" Margin="462,243,0,0" VerticalAlignment="Top" Width="86"/>
+        <ComboBox x:Name="PaymentSourceDropdown" HorizontalAlignment="Left" Margin="548,269,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="PaymentAmountInput" HorizontalAlignment="Left" Height="23" Margin="548,296,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="PaymentSourceLabel" Content="Payment Source" HorizontalAlignment="Left" Margin="448,267,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="PaymentAmountLabel" Content="Amount" HorizontalAlignment="Left" Margin="490,293,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="AddPaymentSourceButton" Content="Add Payment" HorizontalAlignment="Left" Margin="682,286,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="TotalBalanceLabel" Content="Total Balance:" HorizontalAlignment="Left" Margin="584,337,0,0" VerticalAlignment="Top" Width="84"/>
         <TextBlock HorizontalAlignment="Left" Margin="668,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Label Content="Total Funds:" HorizontalAlignment="Left" Margin="595,363,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="TotalFundsLabel" Content="Total Funds:" HorizontalAlignment="Left" Margin="595,363,0,0" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="673,368,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Label Content="" HorizontalAlignment="Left" Margin="673,337,0,0" VerticalAlignment="Top" Width="52"/>
-        <Label Content="" HorizontalAlignment="Left" Margin="673,363,0,0" VerticalAlignment="Top" Width="52"/>
-        <Button Content="Pay" HorizontalAlignment="Left" Margin="619,407,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="TotalBalanceAmountLabel" Content="" HorizontalAlignment="Left" Margin="673,337,0,0" VerticalAlignment="Top" Width="52"/>
+        <Label x:Name="TotalFundsAmountLabel" Content="" HorizontalAlignment="Left" Margin="673,363,0,0" VerticalAlignment="Top" Width="52"/>
+        <Button x:Name="PayButton" Content="Pay" HorizontalAlignment="Left" Margin="619,407,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Content="Past Transactions" HorizontalAlignment="Left" Margin="57,324,0,0" VerticalAlignment="Top"/>
         <ComboBox HorizontalAlignment="Left" Margin="57,350,0,0" VerticalAlignment="Top" Width="120"/>
         <Button Content="View" HorizontalAlignment="Left" Margin="182,350,0,0" VerticalAlignment="Top" Width="75"/>

@@ -62,6 +62,9 @@
       <DependentUpon>AddPaymentWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Cash.cs" />
+    <Compile Include="PastTransactionWindow.xaml.cs">
+      <DependentUpon>PastTransactionWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PaymentLine.cs" />
     <Compile Include="Transaction.cs" />
     <Compile Include="TransactionLine.cs" />
@@ -71,6 +74,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddPaymentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PastTransactionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

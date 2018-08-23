@@ -24,15 +24,41 @@ namespace PaymentSystem
         public static Wallet MyWallet { get; set; }
         public Transaction Current { get; set; }
         public AddPaymentWindow addPayWin;
+        private List<Control> transactionUIElements;
 
         public MainWindow()
         {
             MyWallet = new Wallet();
             addPayWin = new AddPaymentWindow(MyWallet);
             InitializeComponent(); 
+            transactionUIElements = getTransactionUIElements();
+            ToggleTransactionUIVisibility(false);
             SavedPaymentsDropdown.ItemsSource = MyWallet.PaymentMethods;
             SavedPaymentsDropdown.DisplayMemberPath = "Name";
             SavedPaymentsDropdown.SelectedIndex = 0;
+        }
+
+        private List<Control> getTransactionUIElements()
+        {
+            List<Control> list = new List<Control>();
+            list.Add(AddItemsLabel);
+            list.Add(ItemNameLabel);
+            list.Add(ItemNameInput);
+            list.Add(TransactionItemPriceLabel);
+            list.Add(TransactionItemPriceInput);
+            list.Add(AddItemButton);
+            list.Add(AddPaymentsLabel);
+            list.Add(PaymentSourceLabel);
+            list.Add(PaymentSourceDropdown);
+            list.Add(PaymentAmountLabel);
+            list.Add(PaymentAmountInput);
+            list.Add(AddPaymentSourceButton);
+            list.Add(TotalBalanceLabel);
+            list.Add(TotalBalanceAmountLabel);
+            list.Add(TotalFundsLabel);
+            list.Add(TotalFundsAmountLabel);
+            list.Add(PayButton);
+            return list;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -59,6 +85,15 @@ namespace PaymentSystem
             {
                 AddFundsWindow win = new AddFundsWindow(p);
                 win.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void ToggleTransactionUIVisibility(bool showUI)
+        {
+            Visibility vis = showUI ? Visibility.Visible : Visibility.Hidden;
+            foreach(var c in transactionUIElements)
+            {
+                c.Visibility = vis;
             }
         }
     }
